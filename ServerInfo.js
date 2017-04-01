@@ -1,17 +1,19 @@
 function getServerStatus(ServerIP,ServerPort,ShowIP) {
-  $.ajax({
-    url: 'https://mcapi.us/server/status?ip='+ServerIP+'&port='+ServerPort,
-    dataType: 'text',
-    success: function(data) {
-      var json = $.parseJSON(data);
-      if(ShowIP)
-        $('#ip').html(ServerIP+":"+ServerPort);
-      $('#status').html(json.online ? 'online':'offline');
-      $('#status-icon').html(json.online ? '<img src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/5b5e4055/icon-19.png"/>');
-      $('#players').html(json.players.now+"/"+json.players.max);
-      $('#current-players').html(json.players.now);
-      $('#max-players').html(json.players.max);
-    }
+  $(document).ready(function() {
+    $.ajax({
+      url: 'https://mcapi.us/server/status?ip='+ServerIP+'&port='+ServerPort,
+      dataType: 'text',
+      success: function(data) {
+        var json = $.parseJSON(data);
+        if(ShowIP)
+          $('#ip').html(ServerIP+":"+ServerPort);
+        $('#status').html(json.online ? 'online':'offline');
+        $('#status-icon').html(json.online ? '<img src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/5b5e4055/icon-19.png"/>');
+        $('#players').html(json.players.now+"/"+json.players.max);
+        $('#current-players').html(json.players.now);
+        $('#max-players').html(json.players.max);
+      }
+    });
   });
 }
 
