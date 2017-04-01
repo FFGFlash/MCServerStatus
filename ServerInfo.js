@@ -22,7 +22,7 @@ function getServerStatusLU(ServerIP,ServerPort,ShowIP) {
 function defaultStatusBox(ID) {
   $(document).ready(function() {
     $(ID).html(
-    "<div id='uStatus'><span id="status-icon"></span><h3 id='ip'></h3></div><div id='lStatus'>Status: <span id='status'></span><br>Players: <span id='players'></span></div>"
+    "<div id='uStatus'><span id='status-icon'></span><h3 id='ip'></h3></div><div id='lStatus'>Status: <span id='status'></span><br>Players: <span id='players'></span></div>"
     );
   });
 }
