@@ -5,10 +5,11 @@ function getServerStatus(ID,ServerName,ServerIP,ServerPort,ShowIP) {
       dataType: 'text',
       success: function(data) {
         var json = $.parseJSON(data);
-        if(ShowIP)
+        if(ShowIP) {
           $(ID).children('#ip').html(ServerIP+":"+ServerPort);
-        else
+        } else {
           $(ID).children('#ip').html(ServerName);
+        }
         $(ID).children('#name').html(ServerName);
         $(ID).children('#status').html(json.online ? 'online':'offline');
         $(ID).children('#status-icon').html(json.online ? '<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/d97e8033/offline.png"/>');
