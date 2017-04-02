@@ -1,4 +1,4 @@
-function getServerStatus(ServerName,ServerIP,ServerPort,ShowIP) {
+function getServerStatus(ID,ServerName,ServerIP,ServerPort,ShowIP) {
   $(document).ready(function() {
     $.ajax({
       url: 'https://mcapi.us/server/status?ip='+ServerIP+'&port='+ServerPort,
@@ -6,22 +6,22 @@ function getServerStatus(ServerName,ServerIP,ServerPort,ShowIP) {
       success: function(data) {
         var json = $.parseJSON(data);
         if(ShowIP)
-          $('#ip').html(ServerIP+":"+ServerPort);
+          $(ID).children('#ip').html(ServerIP+":"+ServerPort);
         else
-          $('#ip').html(ServerName);
-        $('#name').html(ServerName);
-        $('#status').html(json.online ? 'online':'offline');
-        $('#status-icon').html(json.online ? '<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/5b5e4055/icon-19.png"/>');
-        $('#players').html(json.players.now+"/"+json.players.max);
-        $('#current-players').html(json.players.now);
-        $('#max-players').html(json.players.max);
+          $(ID).children('#ip').html(ServerName);
+        $(ID).children('#name').html(ServerName);
+        $(ID).children('#status').html(json.online ? 'online':'offline');
+        $(ID).children('#status-icon').html(json.online ? '<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/d97e8033/offline.png"/>');
+        $(ID).children('#players').html(json.players.now+"/"+json.players.max);
+        $(ID).children('#current-players').html(json.players.now);
+        $(ID).children('#max-players').html(json.players.max);
       }
     });
   });
 }
 
-function getServerStatusLU(ServerName,ServerIP,ServerPort,ShowIP) {
-  setInterval(getServerStatus.bind(null,ServerName,ServerIP,ServerPort,ShowIP),1000);
+function getServerStatusLU(ID,ServerName,ServerIP,ServerPort,ShowIP) {
+  setInterval(getServerStatus.bind(null,ID,ServerName,ServerIP,ServerPort,ShowIP),1000);
 }
 
 function defaultStatusBox(ID) {
@@ -29,5 +29,6 @@ function defaultStatusBox(ID) {
     $(ID).html(
     "<div id='uStatus'><h3><span id='status-icon'></span> <span id='ip'></span></h3></div><div id='lStatus'>Status: <span id='status'></span><br>Players: <span id='players'></span></div>"
     );
+    return ID;
   });
 }
