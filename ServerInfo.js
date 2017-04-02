@@ -11,7 +11,7 @@ function getServerStatus(ServerName,ServerIP,ServerPort,ShowIP) {
           $('#ip').html(ServerName);
         $('#name').html(ServerName);
         $('#status').html(json.online ? 'online':'offline');
-        $('#status-icon').html(json.online ? '<img src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/5b5e4055/icon-19.png"/>');
+        $('#status-icon').html(json.online ? '<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/5b5e4055/icon-19.png"/>');
         $('#players').html(json.players.now+"/"+json.players.max);
         $('#current-players').html(json.players.now);
         $('#max-players').html(json.players.max);
