@@ -1,4 +1,4 @@
-function getServerStatus(ServerIP,ServerPort,ShowIP) {
+function getServerStatus(ServerName,ServerIP,ServerPort,ShowIP) {
   $(document).ready(function() {
     $.ajax({
       url: 'https://mcapi.us/server/status?ip='+ServerIP+'&port='+ServerPort,
@@ -7,8 +7,11 @@ function getServerStatus(ServerIP,ServerPort,ShowIP) {
         var json = $.parseJSON(data);
         if(ShowIP)
           $('#ip').html(ServerIP+":"+ServerPort);
+        else
+          $('#ip').html(ServerName);
+        $('#name').html(ServerName);
         $('#status').html(json.online ? 'online':'offline');
-        $('#status-icon').html(json.online ? '<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img width="17" height="17" src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/5b5e4055/icon-19.png"/>');
+        $('#status-icon').html(json.online ? '<img src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/01609718/online.png"/>':'<img src="https://cdn.rawgit.com/FFGFlash/MCServerStatus/5b5e4055/icon-19.png"/>');
         $('#players').html(json.players.now+"/"+json.players.max);
         $('#current-players').html(json.players.now);
         $('#max-players').html(json.players.max);
@@ -17,8 +20,8 @@ function getServerStatus(ServerIP,ServerPort,ShowIP) {
   });
 }
 
-function getServerStatusLU(ServerIP,ServerPort,ShowIP) {
-  setInterval(getServerStatus.bind(null,ServerIP,ServerPort,ShowIP),1000);
+function getServerStatusLU(ServerName,ServerIP,ServerPort,ShowIP) {
+  setInterval(getServerStatus.bind(null,ServerName,ServerIP,ServerPort,ShowIP),1000);
 }
 
 function defaultStatusBox(ID) {
