@@ -25,7 +25,7 @@ function updateServerInfoRefresh(StatusBoxID,ServerName,ServerIP,ServerPort,Show
 function useDefaultStatusBox(StatusBoxID) {
   $(function() {
     $(StatusBoxID).html(
-    "<div id='status-box'><link rel='stylesheet' href='https://cdn.rawgit.com/FFGFlash/MCServerStatus/305e2920/stylesheet.css'/><div id='uStatus'><h3><span id='status-icon'></span> <span id='ip'></span></h3></div><div id='lStatus'>Status: <span id='status'></span><br>Players: <span id='players'></span></div></div>"
+    "<div id='status-box'><link rel='stylesheet' href='https://cdn.rawgit.com/FFGFlash/MCServerStatus/8866717b/stylesheet.css'/><div id='uStatus'><h3><span id='status-icon'></span> <span id='ip'></span></h3></div><div id='lStatus'>Status: <span id='status'></span><br>Players: <span id='players'></span></div></div>"
     );
   });
 }
