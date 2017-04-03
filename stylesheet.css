@@ -1,0 +1,20 @@
+#status-box {
+  width: 90%;
+  padding: 10px;
+}
+
+#uStatus {
+  border-top-left-radius: 15px;
+  text-align: center;
+  border-top-right-radius: 15px;
+  background: rgb(25%,25%,25%);
+  border-bottom: rgb(20%,20%,20%) solid 10px;
+  padding: 1px;
+}
+#lStatus {
+  border-bottom-left-radius: 15px;
+  text-align: center;
+  border-bottom-right-radius: 15px;
+  background: rgb(25%,25%,25%);
+  padding: 10px;
+}
